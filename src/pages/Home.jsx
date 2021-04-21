@@ -2,11 +2,12 @@ import React from "react";
 import ButtonMore from "../components/ButtonMore";
 import Header from "../layouts/Header";
 import Hoteltem from "../layouts/Hoteltem";
+import Search from "./Search";
 function Home() {
   return (
     <div className="container mx-auto sm:container md:container lg:container">
       {/* header  */}
-      <Header/>
+      <Header />
       {/* top hotel   */}
       <h2 className="my-2 text-xl font-bold">Top Khách sạn nổi bật</h2>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-2 md:grid-cols-3">
@@ -48,7 +49,10 @@ function Home() {
       <Hoteltem />
       <Hoteltem />
 
-   <ButtonMore/>
+      <ButtonMore />
+
+
+      {/* <Search/> */}
     </div>
   );
 }

@@ -1,15 +1,18 @@
+import { BrowserRouter as Router, Switch } from "react-router-dom";
+import RouteWithSubRoutes from "./components/RouteWithSubRoutes";
 import "./index.css";
-import Home from "./pages/Home";
-import HotelDetail from "./pages/HotelDetail";
-import ListHotel from "./pages/ListHotel";
-import Search from "./pages/Search";
+
+import routes from "./routes/routes";
 function App() {
   return (
     <div className="App ">
-      {/* <Home/> */}
-      <ListHotel/>
-      {/* <HotelDetail/> */}
-      {/* <Search/> */}
+      <Router>
+        <Switch>
+          {routes.map((route, i) => (
+            <RouteWithSubRoutes key={i} {...route} />
+          ))}
+        </Switch>
+      </Router>
     </div>
   );
 }

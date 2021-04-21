@@ -1,10 +1,10 @@
 import React from 'react'
 
-function Search() {
+function Search({callback}) {
     return (
-        <div className='container md:container lg:container space-y-3'>
+        <div className='container md:container lg:container space-y-3 h-screen fixed top-0 left-0 bottom-0 right-0 bg-white'>
             <div className="flex items-center text-xl py-4">
-                <i className="fa fa-times mr-4 cursor-pointer" aria-hidden="true"></i>
+                <i className="fa fa-times mr-4 cursor-pointer" aria-hidden="true" onClick={()=>callback} ></i>
 
 
                 <span className="font-semibold">
