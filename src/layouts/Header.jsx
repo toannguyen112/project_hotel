@@ -1,13 +1,13 @@
 import React from 'react'
-import Search from '../components/Search'
+import SearchBar from '../components/SearchBar'
 
 function Header() {
-    return (
-        <div className="flex items-center py-4 text-md">
-        <img src="./logo.png" alt="" />
-      <Search/>
-      </div>
-    )
+  return (
+    <div className="flex items-center py-4 text-md">
+      <img src="./logo.png" alt="" />
+      <SearchBar />
+    </div>
+  )
 }
 
 export default Header

@@ -4,22 +4,22 @@ import Sort from "../components/Sort";
 import Filter from "../components/Filter";
 import { Link } from "react-router-dom";
 import Search from "./Search";
+import { useDispatch } from "react-redux";
 function ListHotel() {
   const [openSortData, setOpenSortData] = useState({
     sort: false,
     filter: false,
-    search: false
+    search: false,
   });
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  const dispatch = useDispatch();
 
   function closeTab(params) {
-    setOpenSortData({ ...openSortData, sort: !openSortData.sort })
+    setOpenSortData({ ...openSortData, sort: !openSortData.sort });
   }
-
-
 
   return (
     <Fragment>
@@ -31,11 +31,15 @@ function ListHotel() {
             </Link>
             <span className="text-xl">Danh sách khách sạn</span>
           </div>
-          <div>
-            <i className="fa fa-search cursor-pointer" aria-hidden="true" onClick={() => setOpenSortData({ ...openSortData, search: true })} ></i>
+          <div onClick={() => dispatch({ type: "OPEN_SEARCH" })}>
+            <i
+              className="fa fa-search cursor-pointer"
+              aria-hidden="true"
+              onClick={() => setOpenSortData({ ...openSortData, search: true })}
+            ></i>
           </div>
         </div>
-        <div className="listhotel">
+        <div className="listhotel ">
           <Hoteltem />
           <Hoteltem />
           <Hoteltem />
@@ -67,15 +71,19 @@ function ListHotel() {
           </div>
         </div>
       </div>
-      { openSortData.sort && <Sort closeTab={closeTab}
-
-      />}
-      { openSortData.filter && <Filter
-
-      />}
-      {
-        openSortData.search && <Search callback={setOpenSortData({ ...openSortData, search: false })} />
-      }
+      {openSortData.sort || openSortData.filter ? (
+        <div
+          className="overflow bg-gray-400 fixed top-0 bottom-0 left-0 right-0 opacity-40 z-10"
+          onClick={() =>
+            setOpenSortData({ ...openSortData, filter: false, sort: false })
+          }
+        ></div>
+      ) : (
+        ""
+      )}
+      <Sort closeTab={closeTab} stateSort={openSortData.sort} />
+      <Filter closeTab={closeTab} stateFilter={openSortData.filter} />
+      <Search />
     </Fragment>
   );
 }
