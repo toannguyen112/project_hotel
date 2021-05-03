@@ -3,7 +3,7 @@ import React from 'react'
 function Order({ orderTab, setOrderTab }) {
     return (
         <main>
-            <div className="container  md:container lg:container space-y-3 h-screen fixed top-0 left-0 bottom-0 right-0   bg-white" style={{
+            <div className="container  md:container lg:container space-y-3 h-screen fixed top-0 left-0 bottom-0 right-0  z-50  bg-white" style={{
                 transition: "ease-in-out 0.3s all",
                 transform: orderTab ? "translateY(0%)" : "translateY(100%)"
             }}>

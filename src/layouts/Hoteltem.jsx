@@ -10,16 +10,16 @@ function Hoteltem({ props }) {
     return html;
   }
   return (
-    <div className="flex py-20 border-b border-gray-200 cursor-pointer col-span-12 ">
+    <div className="flex py-20 border-b border-gray-120 cursor-pointer col-span-12 ">
       <div className=''>
-        <img src={props.image} alt="" className="rounded-md" />
+        <img src={props.image} alt="" className="rounded-md  object-cover" style={{ width: 160, height: 167 }} />
         <Link to={`/hotel/${props.id}`}>
-          <div className="text-center text-white bg-red-400 rounded-md py-1.5 mt-3"> Xem phòng</div>
+          <div className="text-center text-white rounded-md py-1.5 mt-3" style={{ backgroundImage: "linear-gradient(90deg,#f79441,#f25f58)" }}> Xem phòng</div>
         </Link>
       </div>
       <div className="flex flex-col justify-between w-full pl-6">
-        <div className='pl-20'>
-          <div className="text-xl font-bold text-gray-600">
+        <div className='pl-20 space-y-10'>
+          <div className="text-xl font-bold text-gray-130 uppercase">
             {props.hotel_name}
           </div>
           <div className="flex items-center space-x-20">
@@ -27,33 +27,33 @@ function Hoteltem({ props }) {
 
               {renderStar(props.star)}
             </div>
-            <div className="flex items-center ml-4 text-sm text-gray-600 ">
+            <div className="flex items-center ml-4 text-sm text-gray-600 space-x-6">
               <i className="fa fa-star"></i>
-                86
-              </div>
+              <span> 86</span>
+            </div>
 
-            <div className="flex items-center ml-4 text-sm text-gray-600 ">
+            <div className="flex items-center ml-4 text-sm text-gray-600 space-x-6 ">
               <i className="fa fa-comment" aria-hidden="true"></i>
 
-                61
-              </div>
+              <span>61</span>
+            </div>
           </div>
-          <div className="flex items-center my-2 text-gray-500">
-            <i className="mr-3 fa fa-map-marker" aria-hidden="true"></i>
+          <div className="flex items-center text-gray-130">
+            <i className="mr-3 fa fa-map-marker text-gray-150" aria-hidden="true"></i>
             <span className="text-sm"> {props.company.address} </span>
           </div>
-          <div className="flex items-center my-2 text-gray-500">
-            <i className="mr-3 fa fa-location-arrow" aria-hidden="true"></i>
+          <div className="flex items-center text-gray-130">
+            <i className="mr-3 fa fa-location-arrow text-gray-150" aria-hidden="true"></i>
             <span className="text-sm">Cách bạn 1.14km</span>
           </div>
         </div>
 
-        <div className="flex justify-end text-gray-400 ">
-          <div>
+        <div className="flex justify-end ">
+          <div className="text-18 text-gray-150" >
             <p>Không bán theo giờ</p>
             <p>
               Qua đêm:
-              <span className="font-bold text-yellow-400">{props.price}</span>
+              <span className="ml-2 font-bold text-orange-100">{props.price}</span>
             </p>
           </div>
         </div>

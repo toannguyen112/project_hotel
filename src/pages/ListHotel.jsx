@@ -5,6 +5,7 @@ import Filter from "../components/Filter";
 import { Link } from "react-router-dom";
 import Search from "./Search";
 import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 function ListHotel() {
   const [openSortData, setOpenSortData] = useState({
     sort: false,
@@ -16,10 +17,8 @@ function ListHotel() {
   }, []);
 
   const dispatch = useDispatch();
+  const listHotel = useSelector(state => state.hotelsReducer.list_hotel);
 
-  function closeTab(params) {
-    setOpenSortData({ ...openSortData, sort: !openSortData.sort });
-  }
 
   return (
     <Fragment>
@@ -40,15 +39,18 @@ function ListHotel() {
           </div>
         </div>
         <div className="listhotel ">
-          <Hoteltem />
-          <Hoteltem />
-          <Hoteltem />
-          <Hoteltem />
+          {
+            listHotel.map((item, index) => {
+              return <Hoteltem props={item} key={index} />
+            })
+          }
+
+
         </div>
-        <div className="fixed bottom-0 left-0 right-0 bg-white md:container lg:container ">
+        <div className="fixed bottom-0 left-0 right-0 bg-white container py-20 ">
           <div className="grid grid-cols-2 gap-2 px-4 py-4 md:px-0">
             <div
-              className="px-4 py-3 text-center text-gray-400 border rounded-md shadow-xl cursor-pointer  "
+              className="px-4 py-3 text-center text-gray-150 font-bold   border border-gray-160 rounded-md shadow-xl cursor-pointer  "
               onClick={() =>
                 setOpenSortData({ ...openSortData, sort: !openSortData.sort })
               }
@@ -57,7 +59,7 @@ function ListHotel() {
               <span>Sắp xếp</span>
             </div>
             <div
-              className="px-4 py-3 text-center text-gray-400 border rounded-md shadow-xl cursor-pointer  "
+              className="px-4 py-3 text-center text-gray-150 font-bold  border  border-gray-160 rounded-md shadow-xl cursor-pointer  "
               onClick={() =>
                 setOpenSortData({
                   ...openSortData,
@@ -73,7 +75,7 @@ function ListHotel() {
       </div>
       {openSortData.sort || openSortData.filter ? (
         <div
-          className="overflow bg-gray-400 fixed top-0 bottom-0 left-0 right-0 opacity-40 z-10"
+          className="overflow bg-gray-126 fixed top-0 bottom-0 left-0 right-0  z-10"
           onClick={() =>
             setOpenSortData({ ...openSortData, filter: false, sort: false })
           }
@@ -81,8 +83,10 @@ function ListHotel() {
       ) : (
         ""
       )}
-      <Sort closeTab={closeTab} stateSort={openSortData.sort} />
-      <Filter closeTab={closeTab} stateFilter={openSortData.filter} />
+      <Sort setOpenSortData={() => setOpenSortData({ ...openSortData, sort: false })}
+        stateSort={openSortData.sort} />
+      <Filter setOpenSortData={() => setOpenSortData({ ...openSortData, filter: false })}
+        stateFilter={openSortData.filter} />
       <Search />
     </Fragment>
   );

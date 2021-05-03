@@ -10,27 +10,27 @@ function Sort({ stateSort }) {
             transform: stateSort ? "translateY(0%)" : " translateY(100%)",
         }}>
             <div className="bg-white rounded-t-lg  ">
-                <div className="xl:px-4 xl:py-4 space-y-20">
-                    <div className="border-b  flex items-centerborder-gray-200 text-semibold py-4">
+                <div className="p-12 space-y-20">
+                    <div className="border-b  flex items-center border-gray-120 text-semibold py-12">
                         <Radio style={{ fontWeight: "bold", cursor: 'pointer' }} ><span className="ml-3">Mặc định</span></Radio>
                     </div>
-                    <div className="border-b flex items-center border-gray-200 text-semibold py-4">
+                    <div className="border-b flex items-center border-gray-120 text-semibold py-12">
                         <Radio style={{ fontWeight: "bold", cursor: 'pointer' }} ><span className="ml-3">Gía theo giờ từ thấp tới cao</span></Radio>
                     </div>
-                    <div className="border-b flex items-centerborder-gray-200 text-semibold py-4">
+                    <div className="border-b flex items-center border-gray-120 text-semibold py-12">
                         <Radio style={{ fontWeight: "bold", cursor: 'pointer' }} ><span className="ml-3">Gía theo giờ cao thấp tới thấp</span></Radio>
                     </div>
-                    <div className="border-b flex items-center border-gray-200 text-semibold py-4">
+                    <div className="border-b flex items-center border-gray-120 text-semibold py-12">
                         <Radio style={{ fontWeight: "bold", cursor: 'pointer' }} ><span className="ml-3">Gía qua đêm từ thấp đến cao</span></Radio>
                     </div>
 
 
-                    <div className="border-b flex items-center border-gray-200 text-semibold py-4">
+                    <div className="border-b flex items-center border-gray-120 text-semibold py-12">
                         <Radio style={{ fontWeight: "bold", cursor: 'pointer' }} ><span className="ml-3">Gía qua đêm từ cao đến thấp</span></Radio>
                     </div>
 
                 </div>
-                <div className="px-4 py-4">
+                <div className="p-12">
                     <Button />
                 </div>{" "}
 
