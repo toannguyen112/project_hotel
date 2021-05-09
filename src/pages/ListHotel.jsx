@@ -17,7 +17,7 @@ function ListHotel() {
   }, []);
 
   const dispatch = useDispatch();
-  const listHotel = useSelector(state => state.hotelsReducer.list_hotel);
+  const listHotel = useSelector(state => state.hotelsReducer.list_hotel_filter);
 
 
   return (

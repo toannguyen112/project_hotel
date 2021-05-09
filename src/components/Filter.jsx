@@ -91,35 +91,12 @@ function Filter({ setOpenSortData, stateFilter }) {
       })
     );
   }
-  function sortPrice(newArr) {
-    for (let index in filterPrice) {
-      if (filterPrice[index].checked) {
-        switch (filterPrice[index].lable) {
-          case filterPrice[0].lable:
-            return newArr = newArr.filter(item => item.price < 100000)
-          case filterPrice[1].lable:
-            return newArr = newArr.filter(item => item.price > 100000 && item.price < 200000)
-          case filterPrice[2].lable:
-            return newArr = newArr.filter(item => item.price > 200000 && item.price > 500000)
-          case filterPrice[3].lable:
-            return newArr = newArr.filter(item => item.price > 500000 && item.price <= 1000000)
-          case filterPrice[4].lable:
-            return newArr = newArr.filter(item => item.price > 1000000)
 
-
-          default:
-            break;
-        }
-      }
-    }
-    return newArr;
-  }
   function resetFilter() {
     setvalueFilter();
     setFilterPrice(
       filterPrice.map((item) => {
-        return { ...item, checked: false }
-
+        return { ...item, checked: false };
       })
     );
   }
@@ -130,22 +107,48 @@ function Filter({ setOpenSortData, stateFilter }) {
     if (valueFilter === filter[0].value) {
       newArr = hotels.filter((item) => item.star);
       newArr = sortPrice(newArr);
-
     } else if (valueFilter === filter[1].value) {
       newArr = hotels.filter((item) => item.star >= 1 && item.star < 3);
       newArr = sortPrice(newArr);
     } else if (valueFilter === filter[2].value) {
       newArr = hotels.filter((item) => item.star >= 3);
       newArr = sortPrice(newArr);
-
     }
-    dispatch({ type: "LIST_HOTEL", payload: newArr });
+    console.log(newArr);
+    dispatch({ type: "LIST_HOTEL_FILTER", payload: newArr });
     setOpenSortData();
+  }
+  function sortPrice(newArr) {
+    for (let index in filterPrice) {
+      if (filterPrice[index].checked) {
+        switch (filterPrice[index].lable) {
+          case filterPrice[0].lable:
+            return (newArr = newArr.filter((item) => item.price < 100000));
+          case filterPrice[1].lable:
+            return (newArr = newArr.filter(
+              (item) => item.price > 100000 && item.price < 200000
+            ));
+          case filterPrice[2].lable:
+            return (newArr = newArr.filter(
+              (item) => item.price > 200000 && item.price > 500000
+            ));
+          case filterPrice[3].lable:
+            return (newArr = newArr.filter(
+              (item) => item.price > 500000 && item.price <= 1000000
+            ));
+          case filterPrice[4].lable:
+            return (newArr = newArr.filter((item) => item.price > 1000000));
 
+          default:
+            break;
+        }
+      }
+    }
+    return newArr;
   }
   return (
     <div
-      className="sort  lg:mx-400 fixed bottom-0 left-0 right-0 z-50 "
+      className="sort  md:mx-400 fixed bottom-0 left-0 right-0 z-50 "
       style={{
         transition: "ease-in-out 0.3s all",
         transform: stateFilter ? "translateY(0%)" : " translateY(100%)",

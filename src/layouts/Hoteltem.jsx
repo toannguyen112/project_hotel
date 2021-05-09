@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import { formatPrice } from '../utils/formatPrice'
 function Hoteltem({ props }) {
   function renderStar(startLength) {
     var html = [];
@@ -14,7 +14,7 @@ function Hoteltem({ props }) {
       <div className=''>
         <img src={props.image} alt="" className="rounded-md  object-cover" style={{ width: 160, height: 167 }} />
         <Link to={`/hotel/${props.id}`}>
-          <div className="text-center text-white rounded-md py-1.5 mt-3" style={{ backgroundImage: "linear-gradient(90deg,#f79441,#f25f58)" }}> Xem phòng</div>
+          <div className="text-center text-white rounded-md py-2 mt-3 text-12" style={{ backgroundImage: "linear-gradient(90deg,#f79441,#f25f58)" }}> Xem phòng</div>
         </Link>
       </div>
       <div className="flex flex-col justify-between w-full pl-6">
@@ -49,11 +49,14 @@ function Hoteltem({ props }) {
         </div>
 
         <div className="flex justify-end ">
-          <div className="text-18 text-gray-150" >
-            <p>Không bán theo giờ</p>
+          <div className="text-18 text-gray-150 text-right" >
+            <p>
+              2h đầu:
+              <span className="ml-2 font-bold text-black-200">{formatPrice(props.hour)}</span>
+            </p>
             <p>
               Qua đêm:
-              <span className="ml-2 font-bold text-orange-100">{props.price}</span>
+              <span className="ml-2 font-bold text-orange-100">{formatPrice(props.price)}</span>
             </p>
           </div>
         </div>

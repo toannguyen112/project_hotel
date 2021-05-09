@@ -8,9 +8,7 @@ function Home() {
 
   return (
     <div className="container mx-auto sm:container md:container lg:container">
-      {/* header  */}
       <Header />
-      {/* top hotel   */}
       <h2 className="my-2 text-xl font-bold">Top Khách sạn nổi bật</h2>
       <div className="grid grid-cols-12 gap-4">
         <HotelImage />
@@ -18,7 +16,6 @@ function Home() {
         <HotelImage />
 
       </div>
-      {/* list hotel  */}
       <HotelsContainer />
 
       <ButtonMore />

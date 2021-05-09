@@ -3,7 +3,7 @@ import React from 'react'
 function Order({ orderTab, setOrderTab }) {
     return (
         <main>
-            <div className="container  md:container lg:container space-y-3 h-screen fixed top-0 left-0 bottom-0 right-0  z-50  bg-white" style={{
+            <div className="container  space-y-3 h-screen fixed top-0 left-0 bottom-0 right-0  z-50  bg-white" style={{
                 transition: "ease-in-out 0.3s all",
                 transform: orderTab ? "translateY(0%)" : "translateY(100%)"
             }}>
@@ -33,12 +33,12 @@ function Order({ orderTab, setOrderTab }) {
                            </div>
                     </div>
                 </div>
-                <div className="border-t-4  border-gray-300 space-y-4 px-3">
+                <div className="border-t-4  border-gray-300 space-y-4 px-3 overflow-y-scroll overflow-x-hidden " style={{ height: "calc(100% - 240px)" }} >
                     <p className="text-md font-semibold pt-4">Thông tin phòng</p>
                     <div className="border rounded-md border-gray-300 p-5 space-y-2 ">
                         <div className="flex items-center justify-between">
                             <div className="text-xl font-bold  uppercase">On TOp</div>
-                            <div className="text-sm text-gray-500 cursor-pointer" >
+                            <div className="text-sm  cursor-pointer" >
                                 <span className="mr-2 text-green-500">
                                     <i className="fa fa-refresh" aria-hidden="true"></i>
                                 </span>
@@ -65,14 +65,14 @@ function Order({ orderTab, setOrderTab }) {
                             <p className="text-md font-semibold">
 
                                 Tôi muốn đặt phòng</p>
-                            <div className='rounded-2xl bg-gray-100 inline-block my-5' >
-                                <button className="outline-none border-none bg-gray-100 rounded-2xl px-6 py-1 text-black" >
+                            <div className='rounded-2xl bg-gray-110 inline-block my-5' >
+                                <button className="outline-none border-none bg-gray-110 rounded-2xl px-6 py-1 text-black" >
                                     <span className="mr-2">
                                         <i className="fa fa-moon-o" aria-hidden="true"></i>
                                     </span>
                                     Qua Đêm
                             </button>
-                                <button className="outline-none border-none bg-red-400 rounded-2xl px-6 py-1 text-white" >
+                                <button className="outline-none border-none bg-orange-100 rounded-2xl px-6 py-1 text-white" >
                                     <span className="mr-2">
                                         <i class="fa fa-clock-o" aria-hidden="true"></i>
                                     </span>
@@ -81,7 +81,7 @@ function Order({ orderTab, setOrderTab }) {
                             </div>
                         </div>
                         <div className="flex items-center border border-red-400 rounded-md">
-                            <div className="bg-red-400 text-center py-4 px-6 text-white">
+                            <div className="bg-orange-100 text-center p-18 text-white">
                                 <i className="fa fa-exclamation-triangle" aria-hidden="true"></i>
                             </div>
                             <div className="text-center pl-5">
@@ -107,6 +107,20 @@ function Order({ orderTab, setOrderTab }) {
                         </span>
                     </p>
 
+                </div>
+                <div className="fixed bg-white left-0 right-0  bottom-0 w-full  ">
+                    <div className="container" >
+                        <div className="flex justify-between items-center  p-12  shadow-2xl">
+                            <div className="text-20 text-black-100">
+                                Tạm tính : <span className="ml-2 text-orange-200" >
+                                    120.000
+                                </span>
+                            </div>
+                            <button className="outline-none focus:outline-none px-32 rounded-md py-12 text-white bg-orange-100 text-center">
+                                Thanh toán
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>

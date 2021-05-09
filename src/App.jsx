@@ -12,8 +12,10 @@ function App() {
   useEffect(() => {
     API.get("hotels").then((res) => {
       dispatch({ type: "LIST_HOTEL", payload: res.data.data })
+      dispatch({ type: "LIST_HOTEL_FILTER", payload: res.data.data })
+
     })
-  }, [])
+  })
   return (
     <div className="App ">
       <Router>
